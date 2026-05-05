@@ -2,18 +2,30 @@ import styled from 'styled-components';
 import {Logo} from '../../components/HeaderComponents/logo/Logo.tsx';
 import {Container} from '../../components/Container.ts';
 import {FlexWrapper} from '../../components/FlexWrapper.tsx';
-import {HeaderDesktopMenu} from './headerMenu/headerDesktopMenu.tsx';
-import {HeaderMobileMenu} from './headerMenu/headerMobileMenu.tsx';
+import {HeaderDesktopMenu} from './headerMenu/desktopMenu/HeaderDesktopMenu.tsx';
+import {HeaderMobileMenu} from './headerMenu/mobileMenu/HeaderMobileMenu.tsx';
+import {useEffect, useState} from 'react';
 
 const headerNavList = ['Hone', 'Skills', 'Works', 'Testimony', 'Contact']
 export const Header = () => {
+
+    const [width, setWidth] = useState(window.innerWidth);
+    const breakPoint = 768;
+
+    useEffect(() => {
+        const handleWindowResize = () => setWidth(window.innerWidth)
+        window.addEventListener('resize', handleWindowResize)
+
+        return () => {window.removeEventListener('resize', handleWindowResize)}
+    })
+
     return (
         <StyledHeader>
             <Container>
                 <FlexWrapper justify={'space-between'} align={'center'}>
                     <Logo/>
-                    <HeaderDesktopMenu items={headerNavList}/>
-                    <HeaderMobileMenu items={headerNavList}/>
+                    {width <= breakPoint ?  <HeaderMobileMenu items={headerNavList}/>
+                        : <HeaderDesktopMenu items={headerNavList}/>}
                 </FlexWrapper>
             </Container>
         </StyledHeader>

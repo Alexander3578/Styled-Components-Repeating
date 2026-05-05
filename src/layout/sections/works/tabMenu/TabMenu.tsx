@@ -1,31 +1,48 @@
 import styled from 'styled-components';
 import {Link} from '../../../../components/Link.ts';
+import {StatusType} from '../Works.tsx';
 
-export const TabMenu = ({items}: {items: string[]}) => {
+type TabMenuItems = {
+    name: string
+    status: StatusType
+}
+
+type TabMenuPropsType = {
+    items: TabMenuItems[]
+    setStatusFilter: (statusFilter: StatusType) => void
+    currentFilterStatus: StatusType
+}
+
+
+export const TabMenu = ({items, setStatusFilter, currentFilterStatus}: TabMenuPropsType) => {
     return (
         <StyledMenu>
             <ul>
                 {items.map((item, index) => <MenuList key={index}>
-                    <Link href={'#'}>{item}</Link>
+                    <Link as={'button'}
+                          active={currentFilterStatus === item.status}
+                          onClick={() => {
+                              setStatusFilter(item.status)
+                          }
+                          }>{item.name}</Link>
                 </MenuList>)}
             </ul>
         </StyledMenu>
     );
 };
 
-const StyledMenu = styled.nav `
-  margin-bottom: 40px;
-  display: flex;
-  justify-content: center;
-  
+const StyledMenu = styled.nav`
   ul {
+    max-width: 352px;
+    width: 100%;
     display: flex;
-    gap: 20px;
+    justify-content: space-between;
     list-style: none;
+    margin: 0 auto 40px;
   }
 `
 
 const MenuList = styled.li`
-  
+
 `
 

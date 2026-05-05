@@ -3,11 +3,13 @@ import {SectionTitle} from '../../../components/SectionTitle.ts';
 import {FlexWrapper} from '../../../components/FlexWrapper.tsx';
 import {Icon} from '../../../components/icon/Icon.tsx';
 import {Slider} from '../../../components/slider/Slider.tsx';
-import {IconWrapper} from '../skills/skill/Skill.tsx';
+import {Container} from '../../../components/Container.ts';
+import {IconWrapper} from '../../../components/icon/IconWrapper.ts';
 
 export const Testimony = () => {
     return (
         <StyledTestimony>
+            <Container>
                 <SectionTitle>Testimony</SectionTitle>
                 <FlexWrapper direction={'column'} align={'center'}>
                     <IconWrapper>
@@ -15,12 +17,15 @@ export const Testimony = () => {
                     </IconWrapper>
                     <Slider/>
                 </FlexWrapper>
+            </Container>
         </StyledTestimony>
     );
 };
 
 const StyledTestimony = styled.section`
-  min-height: 50vh;
+  ${Container} {
+    min-height: 50vh;
+  }
   
   ${IconWrapper} {
     margin: 40px 0 72px;

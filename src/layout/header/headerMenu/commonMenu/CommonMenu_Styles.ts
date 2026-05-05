@@ -1,38 +1,5 @@
 import styled from 'styled-components';
-import {theme} from '../../../styles/Theme.ts';
-
-export const HeaderDesktopMenu = ({items}: { items: string[] }) => {
-    return (
-        <StyledHeaderMenu>
-            <ul>
-                {items.map((item, index) =>
-                    <ListItem key={index}>
-                        <StyledLink href={'#'}>
-                            {item}
-                            <Mask>
-                                <span>{item}</span>
-                            </Mask>
-                            <Mask>
-                                <span>{item}</span>
-                            </Mask>
-                        </StyledLink>
-                    </ListItem>)}
-            </ul>
-        </StyledHeaderMenu>
-    );
-};
-
-const StyledHeaderMenu = styled.nav`
-  ul {
-    display: flex;
-    gap: 15px;
-    list-style: none;
-  }
-  
-  @media ${theme.media.tablet} {
-    display: none;
-  }
-`
+import {theme} from '../../../../styles/Theme.ts';
 
 const Mask = styled.span`
   position: absolute;
@@ -94,4 +61,8 @@ const StyledLink = styled.a`
   color: transparent;
 `
 
-
+export const S = {
+    Mask,
+    ListItem,
+    StyledLink
+}
