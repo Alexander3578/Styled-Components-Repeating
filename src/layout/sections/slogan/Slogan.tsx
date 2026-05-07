@@ -6,7 +6,7 @@ import {FlexWrapper} from '../../../components/FlexWrapper.tsx';
 
 export const Slogan = () => {
     return (
-        <StyledSlogan>
+        <StyledSlogan id={'slogan'}>
             <Container>
                 <FlexWrapper direction={'column'}
                              align={'center'}>

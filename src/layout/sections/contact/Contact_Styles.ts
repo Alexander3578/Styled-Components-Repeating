@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import {Container} from '../../../components/Container.ts';
 
 const StyledContact = styled.section`
+  position: relative;
   ${Container} {
     min-height: 50vh;
   }

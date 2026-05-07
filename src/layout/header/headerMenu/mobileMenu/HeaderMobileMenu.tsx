@@ -2,7 +2,7 @@ import {useState} from 'react';
 import {CommonMenu} from '../commonMenu/CommonMenu.tsx';
 import {S} from './HeaderMobileMenu_Styles.ts'
 
-export const HeaderMobileMenu = ({items}: { items: string[] }) => {
+export const HeaderMobileMenu = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false)
 
     const openPopupHandler = () => {
@@ -15,7 +15,7 @@ export const HeaderMobileMenu = ({items}: { items: string[] }) => {
                 <span></span>
             </S.BurgerButton>
             <S.MobileMenuPopup isOpen={isOpen}>
-                <CommonMenu items={items}/>
+                <CommonMenu />
             </S.MobileMenuPopup>
         </S.StyledHeaderMenu>
     );

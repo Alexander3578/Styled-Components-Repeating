@@ -1,17 +1,29 @@
 import {S} from './CommonMenu_Styles.ts'
 
-export const CommonMenu = ({items}: { items: string[] }) => {
+const headerNavList = [
+    {title: 'Home', id: 'main'},
+    {title: 'Skills', id: 'skills'},
+    {title: 'Works', id: 'works'},
+    {title: 'Testimony', id: 'testimony'},
+    {title: 'Contact', id: 'contact'}
+]
+
+export const CommonMenu = () => {
     return (
         <ul>
-            {items.map((item, index) =>
+            {headerNavList.map((item, index) =>
                 <S.ListItem key={index}>
-                    <S.StyledLink href={'#'}>
-                        {item}
+                    <S.StyledLink to={item.id}
+                                  smooth={true}
+                                  activeClass={'active'}
+                                  spy={true}
+                                  offset={-10}>
+                        {item.title}
                         <S.Mask>
-                            <span>{item}</span>
+                            <span>{item.title}</span>
                         </S.Mask>
                         <S.Mask>
-                            <span>{item}</span>
+                            <span>{item.title}</span>
                         </S.Mask>
                     </S.StyledLink>
                 </S.ListItem>)}

@@ -1,70 +1,27 @@
-import styled from 'styled-components';
-import {FlexWrapper} from '../FlexWrapper.tsx';
-import {theme} from '../../styles/Theme.ts';
+import AliceCarousel from 'react-alice-carousel';
+import 'react-alice-carousel/lib/alice-carousel.css';
+import {S} from './Slider_Styles.ts'
+import {Slide} from './slide/Slide.tsx';
+import './../../styles/slider.css'
 
-export const Slider = () => {
-    return (
-        <StyledSlider>
-            <FlexWrapper>
-                <Slide>
-                    <Text>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua Ut enim. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    </Text>
-                    <Name>@ivan ivanow</Name>
-                </Slide>
-            </FlexWrapper>
-            <Pagination>
-                <span></span>
-                <span className={'active'}></span>
-                <span></span>
-            </Pagination>
-        </StyledSlider>
-    );
-};
+const slidesList = [
+    <Slide
+        text={'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim. Lorem ipsum dolor sit amet, consectetur adipisicing'}
+        author={'@alex alexandrov'}/>,
+    <Slide
+        text={'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim. Lorem ipsum dolor sit amet, consectetur adipisicing'}
+        author={'@ivan ivanow'}/>,
+    <Slide
+        text={'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim. Lorem ipsum dolor sit amet, consectetur adipisicing'}
+        author={'@max verstapen'}/>,
+];
 
-const StyledSlider = styled.div`
-  max-width: 500px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`
+export const Carousel = () => (
+    <S.StyledSlider>
+        <AliceCarousel
+            mouseTracking
+            items={slidesList}
+        />
+    </S.StyledSlider>
+);
 
-const Slide = styled.div`
-  text-align: center;
-`
-
-const Text = styled.p`
-
-`
-
-const Name = styled.span`
-  font-family: Josefin Sans, sans-serif;
-  font-weight: 600;
-  font-size: 16px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  
-  margin: 22px 0 42px;
-  display: inline-block;
-`
-
-const Pagination = styled.div`
-  span {
-    display: inline-block;
-    width: 7px;
-    height: 7px;
-    border-radius: 20px;
-    background-color: rgba(255, 255, 255, 0.5);
-    
-    & + span {
-      margin-left: 5px;
-    }
-    
-    &.active {
-      background-color: ${theme.colors.accent};
-      width: 20px;
-    }
-  }
-`

@@ -2,20 +2,20 @@ import styled from 'styled-components';
 import {SectionTitle} from '../../../components/SectionTitle.ts';
 import {FlexWrapper} from '../../../components/FlexWrapper.tsx';
 import {Icon} from '../../../components/icon/Icon.tsx';
-import {Slider} from '../../../components/slider/Slider.tsx';
+import {Carousel} from '../../../components/slider/Slider.tsx';
 import {Container} from '../../../components/Container.ts';
 import {IconWrapper} from '../../../components/icon/IconWrapper.ts';
 
 export const Testimony = () => {
     return (
-        <StyledTestimony>
+        <StyledTestimony id={'testimony'}>
             <Container>
                 <SectionTitle>Testimony</SectionTitle>
                 <FlexWrapper direction={'column'} align={'center'}>
                     <IconWrapper>
                         <Icon iconId={'quote'}/>
                     </IconWrapper>
-                    <Slider/>
+                    <Carousel />
                 </FlexWrapper>
             </Container>
         </StyledTestimony>

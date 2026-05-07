@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import {theme} from '../../../../styles/Theme.ts';
+import {Link} from 'react-scroll';
 
 const Mask = styled.span`
   position: absolute;
@@ -21,6 +22,14 @@ const Mask = styled.span`
 
 const ListItem = styled.li`
   position: relative;
+`
+
+const StyledLink = styled(Link)`
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 400;
+  font-size: 30px;
+  text-align: center;
+  color: transparent;
 
   &::before {
     content: '';
@@ -37,28 +46,20 @@ const ListItem = styled.li`
     transform: scale(0);
   }
 
-  &:hover {
+  &:hover, &.active {
     &::before {
       transform: scale(1);
     }
-    
+
     ${Mask} {
       color: ${theme.colors.font};
       transform: skew(12deg) translateX(5px);
-      
+
       & + ${Mask} {
         transform: skew(12deg) translateX(-5px);
       }
     }
   }
-`
-
-const StyledLink = styled.a`
-  font-family: 'Josefin Sans', sans-serif;
-  font-weight: 400;
-  font-size: 30px;
-  text-align: center;
-  color: transparent;
 `
 
 export const S = {

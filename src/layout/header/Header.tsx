@@ -6,7 +6,6 @@ import {HeaderDesktopMenu} from './headerMenu/desktopMenu/HeaderDesktopMenu.tsx'
 import {HeaderMobileMenu} from './headerMenu/mobileMenu/HeaderMobileMenu.tsx';
 import {useEffect, useState} from 'react';
 
-const headerNavList = ['Hone', 'Skills', 'Works', 'Testimony', 'Contact']
 export const Header = () => {
 
     const [width, setWidth] = useState(window.innerWidth);
@@ -24,8 +23,8 @@ export const Header = () => {
             <Container>
                 <FlexWrapper justify={'space-between'} align={'center'}>
                     <Logo/>
-                    {width <= breakPoint ?  <HeaderMobileMenu items={headerNavList}/>
-                        : <HeaderDesktopMenu items={headerNavList}/>}
+                    {width <= breakPoint ?  <HeaderMobileMenu />
+                        : <HeaderDesktopMenu />}
                 </FlexWrapper>
             </Container>
         </StyledHeader>
