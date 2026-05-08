@@ -24,7 +24,7 @@ export const Link = styled.a<{ active?: boolean }>`
 
     transform: scaleX(0);
     transform-origin: center;
-    transition: transform 0.3s ease;
+    transition: ${theme.animation.transition};
     z-index: -1;
   }
 

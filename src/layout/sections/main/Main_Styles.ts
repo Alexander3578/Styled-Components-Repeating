@@ -50,6 +50,8 @@ const MainName = styled.h2`
 
 const MainTitle = styled.h1`
   ${font({weight: 400, Fmax: 27, Fmin: 20})};
+
+  max-width: 100%;
   
   p {
     display: none;
@@ -92,10 +94,9 @@ const PhotoWrapper = styled.div`
     }
   }
 
-  @media ${theme.media.mobile} {
+  @media screen and (max-width: 880px){
     margin-top: 65px;
   }
-
 `
 
 export const S = {

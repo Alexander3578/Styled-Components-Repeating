@@ -18,6 +18,8 @@ const Mask = styled.span`
       transform: translateY(-50%);
     }
   }
+  
+  transition: ${theme.animation.transition};
 `
 
 const ListItem = styled.li`
@@ -44,6 +46,7 @@ const StyledLink = styled(Link)`
     z-index: 1;
 
     transform: scale(0);
+    transition: ${theme.animation.transition};
   }
 
   &:hover, &.active {
